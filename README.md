@@ -1,5 +1,7 @@
 # Updated MangaDex discord webhook with Google Script
-Inspired [GuilhermeFaga's version](https://www.google.com) but implemented in MangaDex's v5 API.
+Inspired [GuilhermeFaga's version](https://github.com/GuilhermeFaga/MangaDex-discord-webhook-with-Google-Script/) but implemented in MangaDex's v5 API.
+
+A simple `Google Script` to which can be set up in a few minutes (no downloads required). This allows for automatic chapter updates from MangaDex to be forwarded to Discord via Webhooks.
 
 The output in Discord:
 
@@ -13,7 +15,7 @@ The output in Discord:
 
 ## Steps
 ### Creating an MDList
-- Login to your account and create a **public** [MDList](https://mangadex.org/create/list)
+- Log into your account and create a **public** [MDList](https://mangadex.org/create/list)
 
 ![MDList](https://cdn.discordapp.com/attachments/954683733921923115/954782476365074482/unknown.png)
 
@@ -60,7 +62,7 @@ The output in Discord:
 
 ![server settings](https://cdn.discordapp.com/attachments/954683733921923115/954779805176434728/unknown.png)
 
-- Go to `Integrations -> Webhooks -> New Webhook` and copy it's url
+- Go to `Integrations -> Webhooks -> New Webhook` and copy its url
 
 ![new webhook](https://cdn.discordapp.com/attachments/954683733921923115/954780352533123152/unknown.png)
 
