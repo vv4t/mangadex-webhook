@@ -19,7 +19,7 @@ function request(url, method, payload, json = true, access_token = "")
     const response = UrlFetchApp.fetch(url, options);
     
     let code = response.getResponseCode();
-    
+
     if (code != 200 && code != 204)
       throw { error: code };
     
@@ -49,8 +49,14 @@ function get_array_from_sheets(sheet_name, columns = 0) {
     
     values = ss.getRange(1, 1, ss.getLastRow(), columns).getValues();
   } catch (e) {
-    return [];
+    return [];  
+  }
+
+  let array = [];
+  for (const column of values) {
+    for (const row of column)
+      array.push(row);
   }
   
-  return values;
+  return array;
 }
