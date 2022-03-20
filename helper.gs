@@ -1,8 +1,11 @@
-function request(url, method, payload, json = true){
-  
-  let header = {
+function request(url, method, payload, json = true, access_token = "")
+{ 
+  const header = {
     "Content-Type": "application/json"
   };
+
+  if (access_token != "")
+    header["authorization"] = access_token;
   
   let options = {
     method: method,
@@ -12,9 +15,8 @@ function request(url, method, payload, json = true){
   if (payload)
     options['payload'] = JSON.stringify(payload);
   
-  let response;
   try {
-    response = UrlFetchApp.fetch(url, options);
+    const response = UrlFetchApp.fetch(url, options);
     
     let code = response.getResponseCode();
     
@@ -32,8 +34,9 @@ function request(url, method, payload, json = true){
     return response.getContentText("UTF-8");
   } catch (error) {
     console.error(error);
-    return null;
   }
+  
+  return null;
 }
 
 function get_array_from_sheets(sheet_name, columns = 0) {
@@ -48,12 +51,6 @@ function get_array_from_sheets(sheet_name, columns = 0) {
   } catch (e) {
     return null;  
   }
-
-  const array = [];
-  for (const column of values) {
-    for (const row of column)
-      array.push(row);
-  }
   
-  return array;
+  return values;
 }
