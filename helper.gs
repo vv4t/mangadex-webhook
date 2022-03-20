@@ -49,7 +49,7 @@ function get_array_from_sheets(sheet_name, columns = 0) {
     
     values = ss.getRange(1, 1, ss.getLastRow(), columns).getValues();
   } catch (e) {
-    return null;  
+    return [];
   }
   
   return values;
