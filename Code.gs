@@ -1,5 +1,5 @@
 
-const TRIGGER_INTERVAL = 20;
+const TRIGGER_INTERVAL = 10;
 
 const API_URL = "https://api.mangadex.org";
 const LANGUAGE = "en";
