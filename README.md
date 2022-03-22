@@ -91,6 +91,14 @@ The output in Discord:
 
 ![webhooks sheets](https://i.imgur.com/UeKDpTF.png)
 
+### Custom Messages
+- Simply add the text you want the specified webhook to send in the cel of the 2nd column
+
+![custom text](https://i.imgur.com/acbCbja.png)
+
+- To ping a certain role, put the custom text as `<@&role_id>` where role_id is the ID of the role
+- The ID of a role can be obtained by right clicking the role and clicking `Copy ID`
+- This will require [Discord Developer Mode](https://www.howtogeek.com/714348/how-to-enable-or-disable-developer-mode-on-discord/)
 
 ## Customisation
 - At the moment only the `Trigger Interval` and Target Language can be changed through modifying the script

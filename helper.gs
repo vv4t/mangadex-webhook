@@ -51,12 +51,6 @@ function get_array_from_sheets(sheet_name, columns = 0) {
   } catch (e) {
     return [];  
   }
-
-  let array = [];
-  for (const column of values) {
-    for (const row of column)
-      array.push(row);
-  }
   
-  return array;
+  return values;
 }

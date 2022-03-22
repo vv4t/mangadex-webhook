@@ -1,14 +1,13 @@
 
-const TRIGGER_INTERVAL = 10;
+const TRIGGER_INTERVAL = 20;
 
 const API_URL = "https://api.mangadex.org";
 const LANGUAGE = "en";
 
 function main() {
-  const webhooks = get_array_from_sheets("webhooks", columns = 1);
-  const feeds = get_array_from_sheets("feeds", columns = 1);
-
-  const refresh_tokens = get_array_from_sheets("accounts", columns = 1);
+  const webhooks = get_array_from_sheets("webhooks", columns = 2);
+  const feeds = get_array_from_sheets("feeds", columns = 1).map(x => x[0]);
+  const refresh_tokens = get_array_from_sheets("accounts", columns = 1).map(x => x[0]);
 
   const updates = [];
 
@@ -35,11 +34,11 @@ function main() {
     return true;
   });
 
-  for (const webhook of webhooks)
-    post_updates(webhook, unique_updates);
+  for (const [webhook, message] of webhooks)
+    post_updates(webhook, unique_updates, message);
 }
 
-function post_updates(webhook, updates)
+function post_updates(webhook, updates, message = "")
 {
   for (const chapter of updates) {
     const scanlation_group_url = API_URL + "/group/" + get_type_id(chapter, "scanlation_group");
@@ -61,6 +60,7 @@ function post_updates(webhook, updates)
     const thumbnail_url = "https://uploads.mangadex.org/covers/" + manga.data.id + "/" + cover.data.attributes.fileName;
     
     const payload = {
+      "content": message,
       "embeds": [
         {
           "title": "Ch." + chapter.attributes.chapter + " - " + manga.data.attributes.title.en,
