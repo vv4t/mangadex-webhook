@@ -1,5 +1,5 @@
 
-function main()
+function get_access_token()
 {
   const username = "YOUR_USERNAME_HERE";
   const password = "YOUR_PASSWORD_HERE";
