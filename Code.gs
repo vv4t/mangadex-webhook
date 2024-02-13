@@ -7,10 +7,14 @@ const LANGUAGE = "en";
 function main() {
   const webhooks = get_array_from_sheets("webhooks", columns = 2);
   const feeds = get_array_from_sheets("feeds", columns = 1).map(x => x[0]);
-  const refresh_tokens = get_array_from_sheets("accounts", columns = 1).map(x => x[0]);
+  
+  // !------ DEPRECATED -------!
+  // const refresh_tokens = get_array_from_sheets("accounts", columns = 1).map(x => x[0]);
 
   const updates = [];
 
+  // !------ DEPRECATED -------!
+  /*
   for (const refresh_token of refresh_tokens) {
     const access_token = refresh_session(refresh_token);
 
@@ -21,6 +25,7 @@ function main() {
       console.log("failed to log into", refresh_token);
     }
   }
+  */
 
   const custom_updates = check_custom_feed_updates(feeds);
   updates.push(...custom_updates);
@@ -82,6 +87,8 @@ function post_updates(webhook, updates, message = "")
   }
 }
 
+// !------ DEPRECATED -------!
+/*
 function refresh_session(refresh_token)
 {
   const login_endpoint = API_URL + "/auth/refresh";
@@ -111,6 +118,7 @@ function check_follow_feed_updates(access_token)
   else
     return [];
 }
+*/
 
 function check_custom_feed_updates(feed_ids)
 {

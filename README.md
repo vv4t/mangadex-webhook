@@ -7,6 +7,8 @@ The output in Discord:
 
 ![Example](https://i.imgur.com/7vcPLyU.png)
 
+# Updates
+- 13.02.2024 Removed account integration to link follow feed since `/user/auth/` has been deprecated. You should only use feeds.
 
 # Installation
 ## Prerequisites
@@ -27,7 +29,7 @@ The output in Discord:
 ### Creating a Google Sheets
 
 - Create a [Google Sheets](https://sheets.new/)
-- Create three sheets `feeds` and `webhooks` and `accounts` (Case sensitive)
+- Create two sheets `feeds` and `webhooks` (Case sensitive)
 
 ![Add sheet](https://i.imgur.com/nRAvByr.png)
 
@@ -56,25 +58,6 @@ The output in Discord:
 - With the following settings: `function: main`, `event source: Time-driven`, `type of time: Minutes timer`, `Select minute interval: Every 10 minutes`
 
 ![settings](https://i.imgur.com/kp31kas.png)
-
-## Account Integration
-- You can link it with your account's following feed
-- However you will need to get your account's access token
-
-### Access Token
-**USE AT YOUR OWN DISCRETION**
-- Make a new script called `access_token.gs`
-- Paste in [`access_token.gs`](./access_token.gs)
-- Input `username` and `password` for MangaDex
-- Run the script
-- Your token will be output in the console
-- Remove your credentials from the script file
-
-![token](https://i.imgur.com/7JDblWm.png)
-
-- Once you have it, simply add it into `accounts` sheet
-
-![account token](https://i.imgur.com/Iqz3Klw.png)
 
 ### Creating a Discord WebHook
 - Open server settings
